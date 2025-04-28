@@ -1,3 +1,5 @@
+"use client"; // Marcar el archivo como un componente de cliente
+
 import { useState, useEffect } from 'react';
 
 const useFireStore = (id) => {
