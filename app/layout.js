@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import AuthContextProvider from "./context/AuthContext";
 import CartContextProvider from "./context/CartContext";
@@ -35,7 +36,7 @@ export default function RootLayout({ children }) {
             <Footer />
           </CartContextProvider>
         </AuthContextProvider>
-        <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+        <Script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js" strategy="lazyOnload" />
       </body>
     </html>
   );

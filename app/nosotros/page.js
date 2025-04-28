@@ -8,7 +8,7 @@ export default function Nosotros() {
                     <h1 className="text-7xl font-bold leading-36">Con las familias</h1>
                 </div>
                 <div className="w-1/2">
-                    <img src={"/images/familia.webp"} alt={"Familia #1"} fill={"true"} style={{objectFit:"cover"}} />
+                    <Image src="/images/familia.webp" alt="Familia #1" width={600} height={400} style={{ objectFit: "cover" }} />
                 </div>
             </div>
             <div className="flex flex-col bg-[#ffbc0d]">
@@ -19,7 +19,7 @@ export default function Nosotros() {
             </div>
             <div className="container m-auto flex flex-row my-20">
                 <div className="w-1/3">
-                    <img src={"/images/familia2.webp"} alt={"Familia #2"} fill={"true"} style={{objectFit:"cover"}} />
+                    <Image src="/images/familia2.webp" alt="Familia #2" width={600} height={400} style={{ objectFit: "cover" }} />
                 </div>
                 <div className="w-2/3 flex flex-col justify-center">
                     <h2 className="text-5xl font-bold mb-5 dark:text-white">Cajita Feliz · Libros Pioneros en fomentar la lectura infantil.</h2>
@@ -32,12 +32,12 @@ export default function Nosotros() {
                     <p>La importancia de llevar buenos hábitos alimentarios. Cada día, millones de familias visitan nuestros restaurantes. Como compañía líder y comprometida con la sociedad, somos conscientes de la importancia que tienen aspectos como la calidad nutricional y la seguridad alimentaria de nuestros productos y la necesidad de llevar un estilo de vida equilibrado. Queremos que los padres puedan estar tranquilos cuando ofrezcan una Cajita Feliz a sus hijos y demostrarles que trabajamos de manera continuada para adaptar los productos del menú de Cajita Feliz a las necesidades nutricionales de los niños, y contribuir a que adquieran buenos hábitos alimentarios, sin perder la diversión asociada a la marca. Sabemos que para las familias la nutrición es un tema muy importante, esto nos ha llevado a asumir los siguientes compromisos.</p>
                 </div>
                 <div className="w-1/3">
-                    <img src={"/images/familia3.webp"} alt={"Familia #3"} fill={"true"} style={{objectFit:"cover"}} />
+                    <Image src="/images/familia3.webp" alt="Familia #3" width={600} height={400} style={{ objectFit: "cover" }} />
                 </div>
             </div>
             <div className="container m-auto flex flex-row my-20">
                 <div className="w-1/3">
-                    <img src={"/images/familia4.webp"} alt={"Familia #4"} fill={"true"} style={{objectFit:"cover"}} />
+                    <Image src="/images/familia4.webp" alt="Familia #4" width={600} height={400} style={{ objectFit: "cover" }} />
                 </div>
                 <div className="w-2/3 flex flex-col justify-center">
                     <h2 className="text-5xl font-bold mb-5 dark:text-white">Casa Ronald McDonald’s</h2>
@@ -47,7 +47,7 @@ export default function Nosotros() {
             <div className="w-full flex flex-row my-20">
                 <div className="w-1/2 flex flex-col mx-5 shadow-md rounded-md">
                     <div>
-                        <img src={"/images/familia5.webp"} alt={"Familia #5"} fill={"true"} style={{objectFit:"cover"}} />
+                        <Image src="/images/familia5.webp" alt="Familia #5" width={600} height={400} style={{ objectFit: "cover" }} />
                     </div>
                     <div className="p-5">
                         <h2 className="text-3xl font-bold mb-5 dark:text-white">Cajita Feliz</h2>
@@ -56,7 +56,7 @@ export default function Nosotros() {
                 </div>
                 <div className="w-1/2 flex flex-col mx-5 shadow-md rounded-md">
                     <div>
-                        <img src={"/images/familia6.png"} alt={"Familia #6"} fill={"true"} style={{objectFit:"cover"}} />
+                        <Image src="/images/familia6.png" alt="Familia #6" width={600} height={400} style={{ objectFit: "cover" }} />
                     </div>
                     <div className="p-5">
                         <h2 className="text-3xl font-bold mb-5 dark:text-white">McDonald’s Land</h2>
