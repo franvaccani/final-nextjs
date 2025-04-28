@@ -1,10 +1,23 @@
-const useFireStore = async (id) => {
-    const urlBase = import.meta.env.URL_BASE + "/api/";
-    const url = urlBase + (id ? "producto/" + id : "productos");    
-    const response = await fetch(url, {cache:"no-store"});
-    const items = await response.json();
+import { useState, useEffect } from 'react';
 
-    return items;
-}
+const useFireStore = (id) => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-export default useFireStore
+  useEffect(() => {
+    const fetchData = async () => {
+      const urlBase = import.meta.env.URL_BASE + "/api/";
+      const url = urlBase + (id ? "producto/" + id : "productos");
+      const response = await fetch(url, { cache: "no-store" });
+      const items = await response.json();
+      setData(items);  // Guarda los datos
+      setLoading(false); // Actualiza el estado de carga
+    };
+
+    fetchData();
+  }, [id]); // Dependencia en `id`, se ejecutará cuando cambie
+
+  return { data, loading };  // Retorna tanto los datos como el estado de carga
+};
+
+export default useFireStore;
