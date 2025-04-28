@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import useFireStore from "../firebase/useFireStore";
 import ProductCard from "./ProductCard";
