@@ -1,8 +1,9 @@
 "use client";
-import { useEffect, useState } from "react";
+
 import Image from "next/image";
 import Counter from "./Counter";
 import useFireStore from "../firebase/useFireStore";
+import { useEffect, useState } from "react";
 
 const ProductDetail = ({ slug }) => {
   const [item, setItem] = useState(null);
@@ -12,11 +13,11 @@ const ProductDetail = ({ slug }) => {
       const data = await useFireStore(slug);
       setItem(data);
     };
-
+    
     fetchData();
   }, [slug]);
 
-  if (!item) return <div>Cargando...</div>; // Mostramos un loading mientras carga
+  if (!item) return <div>Cargando...</div>;
 
   return (
     <div className="container m-auto flex flex-row my-20 px-20">
