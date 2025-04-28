@@ -1,13 +1,14 @@
 import ProductDetail from "@/app/components/ProductDetail";
-import useFireStore from "@/app/firebase/useFireStore";
 
-export async function generateMetadata ({params, searchParams}, parent) {
-    const {slug} = await params;
-    const item = await useFireStore(slug);
-    
-    return {
-        title:item.nombre + " | McDonalds Argentina"
-    }
+export async function generateMetadata({ params }) {
+  const urlBase = process.env.URL_BASE + "/api/";
+  const url = urlBase + "producto/" + params.slug;
+  const response = await fetch(url, { cache: "no-store" });
+  const item = await response.json();
+
+  return {
+    title: item.nombre + " | McDonalds Argentina"
+  };
 }
 
 export default async function Producto({params}) {
