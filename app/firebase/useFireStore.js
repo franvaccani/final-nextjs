@@ -1,5 +1,3 @@
-"use client"; // Marcar el archivo como un componente de cliente
-
 import { useState, useEffect } from 'react';
 
 const useFireStore = (id) => {
@@ -8,18 +6,41 @@ const useFireStore = (id) => {
 
   useEffect(() => {
     const fetchData = async () => {
-    const urlBase = process.env.NEXT_PUBLIC_URL_BASE + "api/";
-      const url = urlBase + (id ? "producto/" + id : "productos");
-      const response = await fetch(url, { cache: "no-store" });
-      const items = await response.json();
-      setData(items);  // Guarda los datos
-      setLoading(false); // Actualiza el estado de carga
+      try {
+        const isLocalhost = typeof window !== "undefined" && window.location.hostname === "localhost";
+        const baseUrl = isLocalhost
+          ? "http://localhost:3000/"
+          : process.env.NEXT_PUBLIC_URL_BASE;
+
+        const url = baseUrl + "api/" + (id ? "producto/" + id : "productos");
+
+        const response = await fetch(url, { cache: "no-store" });
+
+        if (!response.ok) {
+          throw new Error(`Error en la respuesta del servidor: ${response.status}`);
+        }
+
+        const items = await response.json();
+
+        // Usar imágenes locales
+        const updatedItems = items.map(item => ({
+          ...item,
+          imagen: "/images/" + item.imagen // Asegúrate de que 'imagen' sea el nombre del archivo en Firestore
+        }));
+
+        setData(updatedItems);
+      } catch (error) {
+        console.error('Error cargando datos:', error);
+        setData([]);
+      } finally {
+        setLoading(false);
+      }
     };
 
     fetchData();
-  }, [id]); // Dependencia en `id`, se ejecutará cuando cambie
+  }, [id]);
 
-  return { data, loading };  // Retorna tanto los datos como el estado de carga
+  return { data, loading };
 };
 
 export default useFireStore;
