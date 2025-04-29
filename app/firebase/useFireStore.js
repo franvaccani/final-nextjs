@@ -8,7 +8,7 @@ const useFireStore = (id) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const urlBase = import.meta.env.URL_BASE + "/api/";
+    const urlBase = process.env.NEXT_PUBLIC_URL_BASE + "/api/";
       const url = urlBase + (id ? "producto/" + id : "productos");
       const response = await fetch(url, { cache: "no-store" });
       const items = await response.json();
